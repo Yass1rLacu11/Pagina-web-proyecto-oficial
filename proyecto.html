@@ -6,6 +6,8 @@
     <title>Universidad Fundada 1970 - Online Learning</title>
 
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="main-header">
@@ -33,10 +35,8 @@
                 <h2>Learn, lead, transform</h2>
                 <p>Building the competence, curiosity, and confidence of learners on our campuses and around the world.</p>
             </div>
-            <div class="imagge-mosaic">
-
-
-
+            <div class="image-mosaic">
+                <img src="Images/mosaico.jpeg" alt="Learners">
             </div>
         </section>
 
@@ -46,21 +46,22 @@
             </div>
             <div class="text-content">
                 <p class="section-tag">Our courses</p>
+                <h2>Unlock world-class learning with our Online program_flexible, expert-led courses designed to sharpen your skills and elevate your career.</h2>
+                <a href="#" class="btn primary-btn">Our courses</a>
             </div>
-            <h2>Unlock world-class learning with our Online program_flexible, expert-led courses designed to sharpen your skills and elevate your career.</h2>
-            <a href="#" class="btn primary-btn">Our courses</a>
+            
         </section>
 
         <section class="just-announced-section">
             <div class="section-header">
                 <h2>Just Announced!</h2>
-                <p>Power Skills for Career Growdth: Developed by leading faculty and brought to life with insights from award-winning celebrities</p>
+                <p>Power Skills for Career Growth: Developed by leading faculty and brought to life with insights from award-winning celebrities</p>
                 <div class="carousel-nav">
                     <button>←</button>
                     <button>→</button>
                 </div>
-            </div>
-                <article class="course-card">
+            </div class= "carousel-container">
+                <article class="course-carousel">
                     <img src="Images/celebridadcourse.jpg" alt="Tech Ethics">
                     <div class="card-info">
                         <h3>Tech Ethics: Critical Thinking in the Age of Apps, Algorithms, and AI</h3>
@@ -139,6 +140,13 @@
                             <p>3-4 hours per week • Starting Feb 11, 2026</p>
                         </div>
                     </article>
+                    <article class="course-card white-bg">
+                        <img src="Images/bioinformatica.jpg" alt="Digital Health">
+                        <div class="card-info">
+                            <h3>Bioinformatics and Genomics</h3>
+                            <p>3-4 hours per week • Starting Mar 1, 2026</p>
+                        </div>
+                    </article>
                 </div>
             </div>
 
@@ -146,12 +154,45 @@
                 <h2>Carefully crafted to meet your goals</h2>
                 <p>Learn with a wide variety of courses</p>
                 <div class="course-carousel">
-                    </div>
+                    <article class="course-card">
+                        <img src="Images/place.jpg" alt="Course Placeholder">
+                        <div class="card-info">
+                            <h3>Chemistry Course</h3>
+                            <p>Details here</p>
+                        </div>
+                    </article>
+
+
+                    <article class="course-card">
+                        <img src="Images/estudioso.jpg" alt="Course Placeholder">
+                        <div class="card-info">
+                            <h3>IA Course</h3>
+                            <p>Details here</p>
+                        </div>
+                    </article>
+
+
+                    <article class="course-card">
+                        <img src="Images/cisco.png" alt="Course Placeholder">
+                        <div class="card-info">
+                            <h3>CISCO Course</h3>
+                            <p>Details here</p>
+                        </div>
+
+                    </article>
+                        <article class="course-card">
+                        <img src="Images/oracle.png" alt="Course Placeholder">
+                        <div class="card-info">
+                            <h3>ORACLE Course</h3>
+                            <p>Details here</p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
         <section class="instructor-section">
-        <h2>Learn from the **best** in the industry</h2>
+        <h2>Learn from the best in the industry</h2>
         <p>Meet your instructors</p>
         <div class="instructor-carousel">
         
@@ -215,22 +256,23 @@
             <div class="content-grid">
                 <article class="article-preview">
                     <div class="article-image">
-                        <img src="Images/trabajoonline.jpg" alt="Hombre trabajando en un escritorio">
+                        <img src="Images/trabajos.jpg" alt="Hombre trabajando en un escritorio">
                     </div>
                     <h3>Top 10 University Of New Haven Online Courses for Business Professionals</h3>
                     <ul>
-                        <li><a href="#">The Business of Health Care in the United States</a></li>
-                        <li><a href="#">Pros and Cons of Big Data</a></li>
+                        <li><a>The Business of Health Care in the United States</a></li>
+                        <li><a>Pros and Cons of Big Data</a></li>
                     </ul>
                 </article>
-                <article class="webinar-card">
-                    <div class="video-placeholder">
-                        <img src="Images/webinar.png" alt="Panel de expertos en webinar">
-                        <span class="play-icon">▶</span>
+                <article class="article-preview">
+                    <div class="article-image">
+                        <img src="Images/estudiosa.jpg" alt="Hombre trabajando en un escritorio">
                     </div>
-                    <p class="webinar-tag">Webinar</p>
-                    <h4>Effective Teamwork in Health Care: Expert Panel Discussion</h4>
-                    <a href="#" class="btn accent-btn">Watch</a>
+                    <h3>Top 10 university students</h3>
+                    <ul>
+                        <li><a>Students who reached the top</a></li>
+                        <li><a>Big Data in Education: Balancing Personalized Learning with Privacy Concerns</a></li>
+                    </ul>
                 </article>
             </div>
         </section>
@@ -245,7 +287,9 @@
                 </div>
                 <a href="#" class="btn accent-btn">Explore this course</a>
             </div>
-            <div class="global-map"></div>
+            <div class="global-map">
+                <img src="Images/world-map.jpg" alt="World Map of Learners">
+            </div>
         </section>
 
     </main>
@@ -259,35 +303,47 @@
                 <h3>Programs by Topic</h3>
                 <ul>
                     <li>Technology & Innovation</li>
-                    </ul>
+                    <li>Business</li>
+                    <li>Health Care</li>
+                </ul>
             </div>
             <div class="footer-col">
                 <h3>Programs by Type</h3>
                 <ul>
                     <li>Individual Courses</li>
-                    </ul>
+                    <li>Certificates</li>
+                    <li>Degrees</li>
+                </ul>
             </div>
             <div class="footer-col">
                 <h3>For Organizations</h3>
                 <ul>
                     <li>Stories</li>
-                    </ul>
+                    <li>Custom Programs</li>
+                    <li>Corporate Training</li>
+                </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
             <p>&copy; Copyright 2025 University Of New Haven. All rights reserved.</p>
             <ul class="legal-links">
-                <li><a href="#">Accessibility</a></li>
+                <li><a href="#">Back to Top</a></li>
                 </ul>
             <div class="social-media">
-                <a href="#">[FB]</a>
-                <a href="#">[IN]</a>
-                <a href="#">[LI]</a>
+                 <a href="https://www.facebook.com/harvard.university/" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                 </a>
+                 <a href="https://www.instagram.com/harvard/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                 </a>
+                 <a href="https://www.linkedin.com/school/harvard-university" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                 </a>
             </div>
         </div>
     </footer>
-    </main>
+
 
     <script src="funcionalidad.js"></script>
 </body>
