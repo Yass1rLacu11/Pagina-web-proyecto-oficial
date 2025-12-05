@@ -23,8 +23,15 @@
             </ul>
         </nav>
         <div class="nav-controls">
-            <button class="menu-coin">☰</button>
-            <button class="search-icon">Search Q</button>
+        <button class="menu-btn">
+           <span class="hamburger-line"></span>
+           <span class="hamburger-line"></span>
+           <span class="hamburger-line"></span>
+        </button>
+    
+        <button class="search-btn">
+           <span class="search-text">Search</span>
+        </button>
         </div>
     </header>
 
@@ -52,31 +59,70 @@
             
         </section>
 
-        <section class="just-announced-section">
-            <div class="section-header">
-                <h2>Just Announced!</h2>
-                <p>Power Skills for Career Growth: Developed by leading faculty and brought to life with insights from award-winning celebrities</p>
-                <div class="carousel-nav">
-                    <button>←</button>
-                    <button>→</button>
-                </div>
-            </div class= "carousel-container">
-                <article class="course-carousel">
-                    <img src="Images/celebridadcourse.jpg" alt="Tech Ethics">
-                    <div class="card-info">
-                        <h3>Tech Ethics: Critical Thinking in the Age of Apps, Algorithms, and AI</h3>
-                        <p>2.5 hours • Start today</p>
-                    </div>
-                </article>
-                <article class="course-card">
-                    <img src="Images/celebridad2.jpg" alt="Cultivating Power">
-                    <div class="card-info">
-                        <h3>Cultivating Power for Positive Impact</h3>
-                        <p>2.5 hours • Start today</p>
-                    </div>
-                </article>
+<section class="just-announced-section">
+    <div class="section-header">
+        <div class="header-content">
+            <span class="section-label">Featured</span>
+            <h2>Just Announced!</h2>
+            <p class="section-subtitle">Power Skills for Career Growth: Developed by leading faculty and brought to life with insights from award-winning celebrities</p>
+        </div>
+        <div class="carousel-nav">
+            <button class="carousel-prev" aria-label="Previous slide">
+                <span class="arrow-icon left-arrow"></span>
+            </button>
+            <button class="carousel-next" aria-label="Next slide">
+                <span class="arrow-icon right-arrow"></span>
+            </button>
+        </div>
+    </div>
+    
+    <div class="featured-courses-container">
+        <div class="featured-course featured-main">
+            <div class="course-badge">Featured</div>
+            <div class="course-image">
+                <img src="Images/universityofnewhaven.png" alt="Tech Ethics" >
             </div>
-        </section>
+            <div class="course-content">
+                <h3>Building a Winning Mindset: Flexibility and Resiliency at Work</h3>
+                <div class="course-meta">
+                    <span class="duration">2.5 hours</span>
+                    <span class="divider">•</span>
+                    <span class="start-date">Start today</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="featured-courses-grid">
+            <article class="featured-course">
+                <div class="course-image">
+                    <img src="Images/famososharvad.jpg" alt="Tech Ethics">
+                </div>
+                <div class="course-content">
+                    <h3>Tech Ethics: Critical Thinking in the Age of Apps, Algorithms, and AI</h3>
+                    <div class="course-meta">
+                        <span class="duration">2.5 hours</span>
+                        <span class="divider">•</span>
+                        <span class="start-date">Start today</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="featured-course">
+                <div class="course-image">
+                    <img src="Images/famosodeharvard.webp" alt="Cultivating Power">
+                </div>
+                <div class="course-content">
+                    <h3>Cultivating Power for Positive Impact</h3>
+                    <div class="course-meta">
+                        <span class="duration">2.5 hours</span>
+                        <span class="divider">•</span>
+                        <span class="start-date">Start today</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
 
         <section class="individual-learning-section">
             <div class="image-content">
@@ -112,10 +158,14 @@
             <div class="collection trending">
                 <h2>Trending on University Of New Haven</h2>
                 <div class="header-controls">
-                    <div class="carousel-nav">
-                        <button>←</button>
-                        <button>→</button>
-                    </div>
+                <div class="carousel-nav">
+                    <button class="carousel-prev" aria-label="Previous slide">
+                        <span class="arrow-icon left-arrow"></span>
+                    </button>
+                    <button class="carousel-next" aria-label="Next slide">
+                        <span class="arrow-icon right-arrow"></span>
+                    </button>
+                </div>                
                     <button class="btn secondary-btn">See all</button>
                 </div>
                 <div class="course-carousel">
@@ -294,56 +344,56 @@
 
     </main>
 
-    <footer class="main-footer dark-bg">
-        <div class="footer-columns">
-            <div class="footer-logo">
-                <img src="Images/Universidad1970-Photoroom.png" alt="Logo Universidad 1970 Online">
-            </div>
-            <div class="footer-col">
-                <h3>Programs by Topic</h3>
-                <ul>
-                    <li>Technology & Innovation</li>
-                    <li>Business</li>
-                    <li>Health Care</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Programs by Type</h3>
-                <ul>
-                    <li>Individual Courses</li>
-                    <li>Certificates</li>
-                    <li>Degrees</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>For Organizations</h3>
-                <ul>
-                    <li>Stories</li>
-                    <li>Custom Programs</li>
-                    <li>Corporate Training</li>
-                </ul>
-            </div>
+    <footer class="main-footer">
+    <div class="footer-columns">
+        <div class="footer-logo">
+            <img src="Images/Universidad1970-Photoroom.png" alt="Logo Universidad 1970 Online">
+            <p>EST. 2025</p>
         </div>
-
-        <div class="footer-bottom">
-            <p>&copy; Copyright 2025 University Of New Haven. All rights reserved.</p>
-            <ul class="legal-links">
-                <li><a href="#">Back to Top</a></li>
-                </ul>
-            <div class="social-media">
-                 <a href="https://www.facebook.com/harvard.university/" target="_blank" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                 </a>
-                 <a href="https://www.instagram.com/harvard/" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                 </a>
-                 <a href="https://www.linkedin.com/school/harvard-university" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                 </a>
-            </div>
+        <div class="footer-col">
+            <h3>Programs by Topic</h3>
+            <ul>
+                <li>Technology & Innovation</li>
+                <li>Business</li>
+                <li>Health Care</li>
+            </ul>
         </div>
-    </footer>
+        <div class="footer-col">
+            <h3>Programs by Type</h3>
+            <ul>
+                <li>Individual Courses</li>
+                <li>Certificates</li>
+                <li>Degrees</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>For Organizations</h3>
+            <ul>
+                <li>Stories</li>
+                <li>Custom Programs</li>
+                <li>Corporate Training</li>
+            </ul>
+        </div>
+    </div>
 
+    <div class="footer-bottom">
+        <p>&copy; Copyright 2025 University Of New Haven. All rights reserved.</p>
+        <ul class="legal-links">
+            <li><a href="#">Back to Top</a></li>
+        </ul>
+        <div class="social-media">
+            <a href="https://www.facebook.com/harvard.university/" target="_blank" class="social-link">
+                <span class="social-text">FB</span>
+            </a>
+            <a href="https://www.instagram.com/harvard/" target="_blank" class="social-link">
+                <span class="social-text">IG</span>
+            </a>
+            <a href="https://www.linkedin.com/school/harvard-university" target="_blank" class="social-link">
+                <span class="social-text">IN</span>
+            </a>
+        </div>
+    </div>
+</footer>
 
     <script src="funcionalidad.js"></script>
 </body>
