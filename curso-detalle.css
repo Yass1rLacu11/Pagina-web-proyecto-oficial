@@ -1,0 +1,85 @@
+.course-detail-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.course-header {
+    background: linear-gradient(135deg, var(--primary-color), #008000);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.course-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.course-meta-detail {
+    display: flex;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.course-content {
+    display: flex;
+    gap: 3rem;
+}
+
+.main-content {
+    flex: 2;
+}
+
+.sidebar {
+    flex: 1;
+}
+
+.enrollment-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 100px;
+}
+
+.price-tag {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.enroll-now-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1rem 0;
+}
+
+.module-list {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.module-list li {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,8 +1,9 @@
-//Menu hamburguesa
 document.addEventListener('DOMContentLoaded', function() {
+    //MENU HAMBURGUESA
     const menuBtn = document.querySelector('.menu-btn');
     const mainNav = document.querySelector('.main-nav');
     const hamburgerLines = document.querySelectorAll('.hamburger-line');
+    
     if (menuBtn) {
         menuBtn.addEventListener('click', function() {
             mainNav.classList.toggle('active');
@@ -17,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Cerrar menú al hacer clic en enlaces
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             mainNav.classList.remove('active');
@@ -27,71 +30,321 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Funcion de los botones
-    //botones "Take Course" "Our Courses" "Explore Courses"
-    document.querySelectorAll('.primary-btn, .accent-btn, .secondary-btn').forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const buttonText = this.textContent.trim();
-            
-            switch(true) {
-                case buttonText.includes('Our courses'):
-                case buttonText.includes('Explore Courses'):
-                    alert(' Redirigiendo al catálogo de cursos...\n\nPróximamente podrás explorar todos nuestros cursos disponibles.');
-                    break;
-                    
-                case buttonText.includes('Help me choose'):
-                    alert(' Asistente de selección de cursos activado!\n\nTe ayudaremos a encontrar el curso perfecto según tus objetivos.');
-                    showCourseAssistant();
-                    break;
-                    
-                case buttonText.includes('See all'):
-                    const sectionTitle = this.closest('.collection')?.querySelector('h2')?.textContent || 
-                                       this.closest('.section')?.querySelector('h2')?.textContent;
-                    alert(`Mostrando todos los cursos de: ${sectionTitle}\n\nEsta funcionalidad estará disponible próximamente.`);
-                    break;
-                    
-                case buttonText.includes('Subscribe'):
-                    const emailInput = this.closest('.subscribe-form')?.querySelector('input[type="email"]');
-                    if (emailInput && emailInput.value) {
-                        alert(`¡Gracias por suscribirte, ${emailInput.value}!\n\nRecibirás nuestras últimas actualizaciones y ofertas exclusivas.`);
-                        emailInput.value = '';
-                    } else {
-                        alert('Por favor, ingresa tu correo electrónico para suscribirte.');
-                    }
-                    break;
-                    
-                case buttonText.includes('Explore this course'):
-                    const courseTitle = this.closest('.testimonial-content')?.querySelector('.course-info p')?.textContent;
-                    alert(` Explorando: ${courseTitle}\n\nTe redirigiremos a la página detallada del curso.`);
-                    break;
-                    
-                default:
-                    alert('¡Acción realizada con éxito!\n\nEsta funcionalidad estará completamente operativa en la versión final.');
+    //FUNCIONES DE BOTONES
+function cargarCursosEnHome() {
+    console.log("🔄 Cargando cursos en página principal...");
+    
+    // CURSOS PARA "TRENDING ON UNIVERSITY OF NEW HAVEN"
+    const trendingContainer = document.querySelector('.collection.trending .course-carousel');
+    if (trendingContainer) {
+        console.log("📊 Encontrado contenedor Trending");
+        trendingContainer.innerHTML = '';
+        
+        // Cursos específicos para Trending
+        const trendingCursos = [
+            {
+                id: 'data-science-business',
+                titulo: 'Data Science for Business',
+                duracion: '4-5 hours per week',
+                fechaInicio: 'Starting Jan 14, 2026',
+                imagen: 'Images/discusioncolaborativa.png',
+                instructor: 'Prof. David Wilson',
+                precio: '$199.99',
+                nivel: 'Advanced',
+                rating: '4.9'
+            },
+            {
+                id: 'health-care-economics',
+                titulo: 'Health Care Economics',
+                duracion: '3-4 hours a week',
+                fechaInicio: 'Starting Feb 18, 2026',
+                imagen: 'Images/graficas.jpg',
+                instructor: 'Dr. Maria Rodriguez',
+                precio: '$149.99',
+                nivel: 'Intermediate',
+                rating: '4.7'
+            },
+            {
+                id: 'digital-health',
+                titulo: 'Digital Health',
+                duracion: '3-4 hours per week',
+                fechaInicio: 'Starting Feb 11, 2026',
+                imagen: 'Images/digitalhealth.jpg',
+                instructor: 'Dr. James Kim',
+                precio: '$129.99',
+                nivel: 'Intermediate',
+                rating: '4.5'
+            },
+            {
+                id: 'bioinformatics',
+                titulo: 'Bioinformatics and Genomics',
+                duracion: '3-4 hours per week',
+                fechaInicio: 'Starting Mar 1, 2026',
+                imagen: 'Images/bioinformatica.jpg',
+                instructor: 'Dr. Samantha Lee',
+                precio: '$179.99',
+                nivel: 'Advanced',
+                rating: '4.9'
+            }
+        ];
+        
+        trendingCursos.forEach(curso => {
+            const card = document.createElement('article');
+            card.className = 'course-card trending-card';
+            card.setAttribute('data-course-id', curso.id);
+            card.innerHTML = `
+                <img src="${curso.imagen}" alt="${curso.titulo}" 
+                     onerror="this.src='https://via.placeholder.com/300x180/006400/ffffff?text=Course+Image'">
+                <div class="card-info">
+                    <h3>${curso.titulo}</h3>
+                    <p class="course-duration">${curso.duracion}</p>
+                    <p class="course-date">${curso.fechaInicio}</p>
+                    <div class="course-meta-trending" style="display:none;">
+                        <span class="instructor">👨‍🏫 ${curso.instructor}</span>
+                        <span class="price">💰 ${curso.precio}</span>
+                        <span class="rating">⭐ ${curso.rating}/5.0</span>
+                        <span class="level">🎯 ${curso.nivel}</span>
+                    </div>
+                </div>
+            `;
+            trendingContainer.appendChild(card);
+            console.log(`Añadido curso Trending: ${curso.titulo}`);
+        });
+    }
+    
+    // CURSOS PARA "CAREFULLY CRAFTED TO MEET YOUR GOALS"
+    const craftedContainer = document.querySelector('.collection.crafted .course-carousel');
+    if (craftedContainer) {
+        console.log("🎨 Encontrado contenedor Crafted");
+        craftedContainer.innerHTML = '';
+        
+        // Cursos específicos para Carefully Crafted
+        const craftedCursos = [
+            {
+                id: 'chemistry',
+                titulo: 'Chemistry Course',
+                descripcion: 'Master advanced chemistry principles with practical applications in various industries.',
+                duracion: '4-5 hours per week',
+                imagen: 'Images/place.jpg',
+                instructor: 'Dr. Robert Chen',
+                precio: '$99.99',
+                nivel: 'Advanced',
+                rating: '4.8'
+            },
+            {
+                id: 'ai-course',
+                titulo: 'AI Course',
+                descripcion: 'Fundamentals of Artificial Intelligence and Machine Learning with real-world applications.',
+                duracion: '3-4 hours per week',
+                imagen: 'Images/estudioso.jpg',
+                instructor: 'Dr. Thomas Wong',
+                precio: '$159.99',
+                nivel: 'Beginner',
+                rating: '4.6'
+            },
+            {
+                id: 'cisco',
+                titulo: 'CISCO Course',
+                descripcion: 'Complete networking certification training with CISCO technologies and protocols.',
+                duracion: '5-6 hours per week',
+                imagen: 'Images/cisco.png',
+                instructor: 'Alex Martinez',
+                precio: '$249.99',
+                nivel: 'Intermediate',
+                rating: '4.7'
+            },
+            {
+                id: 'oracle',
+                titulo: 'ORACLE Course',
+                descripcion: 'Professional database administration with ORACLE technologies and best practices.',
+                duracion: '4-5 hours per week',
+                imagen: 'Images/oracle.png',
+                instructor: 'Jennifer Park',
+                precio: '$229.99',
+                nivel: 'Advanced',
+                rating: '4.8'
+            }
+        ];
+        
+        craftedCursos.forEach(curso => {
+            const card = document.createElement('article');
+            card.className = 'course-card crafted-card';
+            card.setAttribute('data-course-id', curso.id);
+            card.innerHTML = `
+                <img src="${curso.imagen}" alt="${curso.titulo}"
+                     onerror="this.src='https://via.placeholder.com/300x180/006400/ffffff?text=Course+Image'">
+                <div class="card-info">
+                    <h3>${curso.titulo}</h3>
+                    <p class="course-description">${curso.descripcion}</p>
+                    <div class="course-details-crafted">
+                        <span class="duration">🕒 ${curso.duracion}</span>
+                        <span class="separator">•</span>
+                        <span class="level">🎯 ${curso.nivel}</span>
+                        <span class="separator">•</span>
+                        <span class="price">💰 ${curso.precio}</span>
+                    </div>
+                    <div class="course-instructor" style="margin-top: 8px; font-size: 0.85rem; color: #666;">
+                        Instructor: ${curso.instructor}
+                    </div>
+                </div>
+            `;
+            craftedContainer.appendChild(card);
+            console.log(`✅ Añadido curso Crafted: ${curso.titulo}`);
+        });
+    }
+    
+    // CURSOS PARA "JUST ANNOUNCED - FEATURED"
+    const featuredGrid = document.querySelector('.featured-courses-grid');
+    if (featuredGrid) {
+        console.log("🌟 Encontrado contenedor Featured");
+        featuredGrid.innerHTML = '';
+        
+        // Cursos específicos para Featured
+        const featuredCursos = [
+            {
+                id: 'tech-ethics',
+                titulo: 'Tech Ethics: Critical Thinking in the Age of Apps, Algorithms, and AI',
+                duracion: '2.5 hours',
+                fechaInicio: 'Start today',
+                imagen: 'Images/famososharvad.jpg',
+                instructor: 'Dr. Sarah Johnson',
+                precio: '$89.99',
+                nivel: 'Intermediate',
+                rating: '4.8'
+            },
+            {
+                id: 'winning-mindset',
+                titulo: 'Building a Winning Mindset: Flexibility and Resiliency at Work',
+                duracion: '2.5 hours',
+                fechaInicio: 'Start today',
+                imagen: 'Images/universityofnewhaven.png',
+                instructor: 'Michael Chen',
+                precio: '$79.99',
+                nivel: 'Beginner',
+                rating: '4.6'
+            }
+        ];
+        
+        featuredCursos.forEach(curso => {
+            const article = document.createElement('article');
+            article.className = 'featured-course';
+            article.setAttribute('data-course-id', curso.id);
+            article.innerHTML = `
+                <div class="course-image">
+                    <img src="${curso.imagen}" alt="${curso.titulo}"
+                         onerror="this.src='https://via.placeholder.com/300x200/006400/ffffff?text=Course+Image'">
+                </div>
+                <div class="course-content">
+                    <h3>${curso.titulo}</h3>
+                    <div class="course-meta">
+                        <span class="duration">${curso.duracion}</span>
+                        <span class="divider">•</span>
+                        <span class="start-date">${curso.fechaInicio}</span>
+                    </div>
+                    <div class="course-features" style="margin-top: 10px; font-size: 0.9rem; color: #666;">
+                        <span>👨‍🏫 ${curso.instructor}</span> • 
+                        <span>🎯 ${curso.nivel}</span> • 
+                        <span>⭐ ${curso.rating}/5.0</span>
+                    </div>
+                </div>
+            `;
+            featuredGrid.appendChild(article);
+            console.log(`✅ Añadido curso Featured: ${curso.titulo}`);
+        });
+    }
+    
+    // AÑADIR EVENTOS DE CLIC A TODAS LAS TARJETAS
+    console.log("🖱️ Añadiendo eventos de clic a tarjetas...");
+    document.querySelectorAll('.course-card, .featured-course').forEach(card => {
+        card.style.cursor = 'pointer';
+        
+        card.addEventListener('click', function(e) {
+            // Evitar que se active si se hace clic en un botón dentro de la tarjeta
+            if (e.target.tagName === 'BUTTON' || e.target.closest('button')) {
+                return;
             }
             
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
+            const courseId = this.getAttribute('data-course-id');
+            console.log(`🎯 Clic en curso ID: ${courseId}`);
+            
+            if (courseId) {
+                // Redirigir a la página de detalle del curso
+                window.location.href = `curso-detalle.html?course=${courseId}`;
+            } else {
+                console.warn('⚠️ No se encontró ID de curso, redirigiendo al catálogo');
+                window.location.href = 'catalogo.html';
+            }
+        });
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+            this.style.boxShadow = '';
         });
     });
+    
+    console.log("✅ Todos los cursos cargados correctamente");
+}
+    
+    //BOTÓN "OUR COURSES" - Redirige a catálogo
+    document.querySelectorAll('.primary-btn').forEach(btn => {
+        if (btn.textContent.includes('Our courses') || btn.textContent.includes('Explore Courses')) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'catalogo.html';
+            });
+        }
+    });
+
+    //CLICK EN TARJETAS DE CURSO - Redirige a detalle
+    document.querySelectorAll('.course-card, .featured-course').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function(e) {
+            if (!e.target.closest('button')) {
+                const titulo = this.querySelector('h3')?.textContent || '';
+                let cursoId;
+                
+                if (titulo.includes('Tech Ethics')) cursoId = 'tech-ethics';
+                else if (titulo.includes('Winning Mindset')) cursoId = 'winning-mindset';
+                else if (titulo.includes('Data Science')) cursoId = 'data-science';
+                else if (titulo.includes('Health Care')) cursoId = 'health-care';
+                else cursoId = 'general-course';
+                
+                window.location.href = `curso-detalle.html?course=${cursoId}`;
+            }
+        });
+    });
+
+    //SEGURIDAD EN ENLACES
+    // Previene errores con páginas que no existen
+    document.querySelectorAll('.nav-links a, .footer-col a').forEach(link => {
+        const href = link.getAttribute('href');
+        
+        // Si el enlace no es a una página existente
+        if (href && href.startsWith('#') && !href.includes('-section')) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                showNotification('⏳ Esta sección estará disponible próximamente.');
+            });
+        }
+    });
+
+    // OTRAS FUNCIONALIDADES
+    // Botones toggle
     document.querySelectorAll('.toggle-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             this.parentElement.querySelectorAll('.toggle-btn').forEach(b => {
                 b.classList.remove('active');
             });
-
             this.classList.add('active');
-            
-            // Mostrar mensaje selección
-            const selection = this.textContent.trim();
-            const message = selection === 'For myself' ? 
-                ' Modo individual activado - Mostrando cursos para desarrollo personal' :
-                ' Modo equipo activado - Mostrando programas para capacitación corporativa';
-            updateCourseFinder(selection);
+            updateCourseFinder(this.textContent.trim());
         });
     });
+
+    // Carruseles
     document.querySelectorAll('.carousel-prev, .carousel-next').forEach(btn => {
         btn.addEventListener('click', function() {
             const isPrev = this.classList.contains('carousel-prev');
@@ -103,13 +356,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     left: scrollAmount, 
                     behavior: 'smooth' 
                 });
-                this.style.backgroundColor = 'var(--primary-color)';
-                setTimeout(() => {
-                    this.style.backgroundColor = '';
-                }, 300);
             }
         });
     });
+
+    // Dropdowns
     document.querySelectorAll('.finder-form p').forEach(item => {
         item.addEventListener('click', function() {
             const currentText = this.querySelector('.highlight').textContent;
@@ -120,18 +371,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // traductor
-    createLanguageSwitcher();
-    document.querySelectorAll('.course-card, .featured-course, .instructor-profile').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transition = 'all 0.3s ease';
-        });
-    });
+    // Smooth scroll para enlaces internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId !== '#') {
+                e.preventDefault();
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -142,10 +387,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Traductor
+    createLanguageSwitcher();
     animateCourseCounters();
 });
 function findClosestCarousel(element) {
-
     return element.closest('.header-controls')?.nextElementSibling || 
            element.closest('.just-announced-section')?.querySelector('.featured-courses-container') ||
            element.closest('.collection')?.querySelector('.course-carousel') ||
@@ -158,26 +405,16 @@ function updateCourseFinder(mode) {
         ['Business Skills', 'Technology', 'Personal Development'] : 
         ['Team Management', 'Corporate Strategy', 'Leadership Training'];
     
-    const levels = mode === 'For myself' ? 
-        ['Beginner', 'Intermediate', 'Advanced'] : 
-        ['Team Training', 'Executive Level', 'Departmental'];
-    
-    const durations = mode === 'For myself' ? 
-        ['2-4 weeks', '1-3 months', 'Self-paced'] : 
-        ['Team Workshops', 'Quarterly Programs', 'Yearly Training'];
-    
     formItems[0].querySelector('.highlight').textContent = topics[0];
-    formItems[1].querySelector('.highlight').textContent = levels[0];
-    formItems[2].querySelector('.highlight').textContent = durations[0];
 }
 
 function getDropdownOptions(context) {
     if (context.includes('Topic')) {
-        return ['Business & Management', 'Technology & Data', 'Health & Medicine', 'Arts & Humanities', 'Science & Engineering'];
+        return ['Business & Management', 'Technology & Data', 'Health & Medicine'];
     } else if (context.includes('Level')) {
-        return ['Beginner', 'Intermediate', 'Advanced', 'All Levels'];
+        return ['Beginner', 'Intermediate', 'Advanced'];
     } else if (context.includes('Length')) {
-        return ['Short (1-4 weeks)', 'Medium (1-3 months)', 'Long (3-6 months)', 'Self-paced'];
+        return ['Short (1-4 weeks)', 'Medium (1-3 months)', 'Long (3-6 months)'];
     }
     return [];
 }
@@ -210,9 +447,8 @@ function showDropdown(element, options, current) {
         item.onclick = () => {
             element.querySelector('.highlight').textContent = option;
             dropdown.remove();
-
             if (option !== current) {
-                showNotification(` Filtro actualizado a: ${option}`);
+                showNotification(`Filtro actualizado a: ${option}`);
             }
         };
         dropdown.appendChild(item);
@@ -236,7 +472,6 @@ function showDropdown(element, options, current) {
 }
 
 function createLanguageSwitcher() {
-      // bandera
     const langSwitcher = document.createElement('div');
     langSwitcher.id = 'language-switcher';
     langSwitcher.style.cssText = `
@@ -251,6 +486,7 @@ function createLanguageSwitcher() {
         cursor: pointer;
         transition: transform 0.3s;
     `;
+    
     langSwitcher.innerHTML = `
         <div style="display: flex; align-items: center; padding: 8px 15px;">
             <span style="margin-right: 8px; font-size: 1.2em;">🇺🇸</span>
@@ -271,57 +507,21 @@ function createLanguageSwitcher() {
     
     document.body.appendChild(langSwitcher);
     
-    // Traducciones
     const translations = {
         en: {
-            nav: ['Programs', 'For Organizations', 'Stories', 'Blog'],
-            hero: {
-                title: 'Universidad 1970 Online',
-                subtitle: 'Learn, lead, transform',
-                description: 'Building the competence, curiosity, and confidence of learners on our campuses and around the world.'
-            },
-            courses: 'Our courses',
-            featured: 'Just Announced!',
-            individual: 'Learn as an individual',
-            trending: 'Trending on University Of New Haven',
-            instructors: 'Learn from the best in the industry',
-            newsletter: 'Stay tuned for more',
-            articles: 'Learn more with free articles and webinars',
-            footer: {
-                topics: 'Programs by Topic',
-                types: 'Programs by Type',
-                organizations: 'For Organizations'
-            }
+            nav: ['Programs', 'For Organizations', 'Stories', 'Blog']
         },
         es: {
-            nav: ['Programas', 'Para Organizaciones', 'Historias', 'Blog'],
-            hero: {
-                title: 'Universidad 1970 Online',
-                subtitle: 'Aprende, lidera, transforma',
-                description: 'Desarrollando la competencia, curiosidad y confianza de los estudiantes en nuestros campus y alrededor del mundo.'
-            },
-            courses: 'Nuestros cursos',
-            featured: '¡Recién Anunciado!',
-            individual: 'Aprende como individuo',
-            trending: 'Tendencias en Universidad Of New Haven',
-            instructors: 'Aprende de los mejores en la industria',
-            newsletter: 'Mantente informado',
-            articles: 'Aprende más con artículos y webinars gratis',
-            footer: {
-                topics: 'Programas por Tema',
-                types: 'Programas por Tipo',
-                organizations: 'Para Organizaciones'
-            }
+            nav: ['Programas', 'Para Organizaciones', 'Historias', 'Blog']
         }
     };
     
     let currentLang = 'en';
+    
     langSwitcher.querySelector('div:first-child').addEventListener('click', function(e) {
         e.stopPropagation();
         const options = document.getElementById('language-options');
-        const isVisible = options.style.display === 'block';
-        options.style.display = isVisible ? 'none' : 'block';
-        langSwitcher.style.transform = isVisible ? '' : 'scale(1.05)';
+        options.style.display = options.style.display === 'block' ? 'none' : 'block';
     });
     
     document.querySelectorAll('.lang-option').forEach(option => {
@@ -329,178 +529,25 @@ function createLanguageSwitcher() {
             const newLang = this.getAttribute('data-lang');
             if (newLang !== currentLang) {
                 currentLang = newLang;
-                translatePage(newLang);
-
-                const flag = newLang === 'en' ? '🇺🇸' : '🇪🇸';
-                const code = newLang.toUpperCase();
-                langSwitcher.querySelector('span:first-child').textContent = flag;
-                langSwitcher.querySelector('span:nth-child(2)').textContent = code;
-
-                document.getElementById('language-options').style.display = 'none';
-                langSwitcher.style.transform = '';
+                const t = translations[newLang];
                 
-                showNotification(`Idioma cambiado a ${newLang === 'en' ? 'English' : 'Español'}`);
+                document.querySelectorAll('.nav-links a').forEach((link, index) => {
+                    if (index >= 1 && index <= 4) {
+                        link.textContent = t.nav[index-1];
+                    }
+                });
+                
+                showNotification(`🌍 Idioma cambiado a ${newLang === 'en' ? 'English' : 'Español'}`);
             }
+            
+            document.getElementById('language-options').style.display = 'none';
         });
     });
     
     document.addEventListener('click', (e) => {
         if (!langSwitcher.contains(e.target)) {
             document.getElementById('language-options').style.display = 'none';
-            langSwitcher.style.transform = '';
         }
-    });
-    
-    function translatePage(lang) {
-        const t = translations[lang];
-        
-        document.querySelectorAll('.nav-links a').forEach((link, index) => {
-            link.textContent = t.nav[index];
-        });
-        
-        const heroSection = document.querySelector('.hero-banner-section');
-        if (heroSection) {
-            heroSection.querySelector('h1').textContent = t.hero.title;
-            heroSection.querySelector('h2').textContent = t.hero.subtitle;
-            heroSection.querySelector('p').textContent = t.hero.description;
-        }
-
-        const elementsToTranslate = {
-            '.our-courses-section .section-tag': t.courses,
-            '.just-announced-section h2': t.featured,
-            '.individual-learning-section h2': t.individual,
-            '.course-collections-section .trending h2': t.trending,
-            '.instructor-section h2': t.instructors,
-            '.newsletter-section h2': t.newsletter,
-            '.articles-webinars-section h2': t.articles
-        };
-        
-        Object.entries(elementsToTranslate).forEach(([selector, text]) => {
-            const element = document.querySelector(selector);
-            if (element) element.textContent = text;
-        });
-
-        document.querySelectorAll('.footer-col h3').forEach((header, index) => {
-            if (index === 0) header.textContent = t.footer.topics;
-            else if (index === 1) header.textContent = t.footer.types;
-            else if (index === 2) header.textContent = t.footer.organizations;
-        });
-    }
-}
-
-function showCourseAssistant() {
-    const modal = document.createElement('div');
-    modal.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: white;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        z-index: 10000;
-        max-width: 500px;
-        width: 90%;
-        max-height: 80vh;
-        overflow-y: auto;
-    `;
-    
-    modal.innerHTML = `
-        <h3 style="color: var(--primary-color); margin-bottom: 20px;">🎯 Asistente de Selección de Cursos</h3>
-        <p style="margin-bottom: 20px;">Responde estas preguntas para encontrar el curso perfecto:</p>
-        
-        <div style="margin-bottom: 20px;">
-            <label style="display: block; margin-bottom: 8px; font-weight: 600;">1. ¿Cuál es tu objetivo principal?</label>
-            <select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                <option>Avanzar en mi carrera actual</option>
-                <option>Cambiar de profesión</option>
-                <option>Desarrollo personal</option>
-                <option>Certificación profesional</option>
-            </select>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <label style="display: block; margin-bottom: 8px; font-weight: 600;">2. ¿Cuánto tiempo puedes dedicar semanalmente?</label>
-            <select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                <option>1-3 horas</option>
-                <option>3-5 horas</option>
-                <option>5-10 horas</option>
-                <option>10+ horas</option>
-            </select>
-        </div>
-        
-        <div style="margin-bottom: 25px;">
-            <label style="display: block; margin-bottom: 8px; font-weight: 600;">3. Área de interés</label>
-            <select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                <option>Tecnología y Data Science</option>
-                <option>Negocios y Management</option>
-                <option>Salud y Medicina</option>
-                <option>Artes y Humanidades</option>
-                <option>Ciencias e Ingeniería</option>
-            </select>
-        </div>
-        
-        <div style="display: flex; gap: 10px; justify-content: flex-end;">
-            <button id="cancel-assistant" style="padding: 10px 20px; background: #f5f5f5; border: none; border-radius: 4px; cursor: pointer;">
-                Cancelar
-            </button>
-            <button id="find-courses" style="padding: 10px 20px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer;">
-                Encontrar Cursos
-            </button>
-        </div>
-    `;
-    
-    const overlay = document.createElement('div');
-    overlay.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,0.5);
-        z-index: 9999;
-    `;
-    
-    document.body.appendChild(overlay);
-    document.body.appendChild(modal);
-    
-    document.getElementById('cancel-assistant').addEventListener('click', () => {
-        modal.remove();
-        overlay.remove();
-    });
-    
-    document.getElementById('find-courses').addEventListener('click', () => {
-        modal.remove();
-        overlay.remove();
-        showNotification('🎉 ¡Perfecto! Hemos encontrado 12 cursos que se ajustan a tus necesidades. Redirigiendo...');
-        setTimeout(() => {
-        }, 1500);
-    });
-
-    overlay.addEventListener('click', () => {
-        modal.remove();
-        overlay.remove();
-    });
-}
-
-function animateCourseCounters() {
-
-    const counters = document.querySelectorAll('.course-meta .duration');
-    counters.forEach(counter => {
-        const originalText = counter.textContent;
-        counter.style.opacity = '0.8';
-        counter.style.transition = 'all 0.3s';
-        
-        counter.addEventListener('mouseenter', () => {
-            counter.style.opacity = '1';
-            counter.style.transform = 'scale(1.1)';
-        });
-        
-        counter.addEventListener('mouseleave', () => {
-            counter.style.opacity = '0.8';
-            counter.style.transform = 'scale(1)';
-        });
     });
 }
 
@@ -522,7 +569,6 @@ function showNotification(message) {
         max-width: 300px;
     `;
     
-    // Animación CSS
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
@@ -540,10 +586,27 @@ function showNotification(message) {
     
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => notification.remove(), 300); 
+        setTimeout(() => notification.remove(), 300);
     }, 3000);
 }
 
+function animateCourseCounters() {
+    const counters = document.querySelectorAll('.course-meta .duration');
+    counters.forEach(counter => {
+        counter.style.opacity = '0.8';
+        counter.style.transition = 'all 0.3s';
+        
+        counter.addEventListener('mouseenter', () => {
+            counter.style.opacity = '1';
+            counter.style.transform = 'scale(1.1)';
+        });
+        
+        counter.addEventListener('mouseleave', () => {
+            counter.style.opacity = '0.8';
+            counter.style.transform = 'scale(1)';
+        });
+    });
+}
 
 window.addEventListener('load', function() {
     document.body.style.opacity = '0';
@@ -552,8 +615,4 @@ window.addEventListener('load', function() {
     setTimeout(() => {
         document.body.style.opacity = '1';
     }, 100);
-    setTimeout(() => {
-        const visitorCount = Math.floor(Math.random() * 1000) + 500;
-        console.log(`👥 ${visitorCount} personas están explorando cursos actualmente`);
-    }, 2000);
 });

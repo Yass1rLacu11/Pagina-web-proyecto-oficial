@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Catalog - Universidad 1970 Online</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="catalogo.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <img src="Images/Universidad1970-Photoroom.png" alt="Logo">
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-links">
+        <nav class="main-nav">
+             <ul class="nav-links">
+                <li><a href="./proyecto.html">Home</a></li>
+                <li><a href="./catalogo.html" class="active">All Courses</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#organizations">For Organizations</a></li>
+            </ul>
+           </nav>
+            </ul>
+        </nav>
+        <div class="nav-controls">
+            <button class="menu-btn">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <button class="search-btn">
+                <span class="search-text">Search</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="catalog-page">
+        <section class="catalog-header">
+            <h1>Explore All Courses</h1>
+            <p>Browse our comprehensive catalog of expert-led courses</p>
+            
+            <div class="search-filters">
+                <input type="text" placeholder="🔍 Search courses..." class="search-input">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="technology">Technology</button>
+                    <button class="filter-btn" data-filter="business">Business</button>
+                    <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+                    <button class="filter-btn" data-filter="science">Science</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="courses-grid">
+            <!-- Los cursos se cargarán dinámicamente con JavaSCRIPT-->
+            <div class="loading">Loading courses...</div>
+        </section>
+    </main>
+
+    <script src="funcionalidad.js"></script>
+    <script src="catalogo.js"></script>
+</body>
+</html>

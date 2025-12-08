@@ -1311,3 +1311,730 @@ html {
         transform: scale(0.9);
     }
 }
+/* ===== ESTILOS MEJORADOS PARA CURSOS EN HOME ===== */
+
+.collection.trending .course-card {
+    min-width: 280px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.collection.trending .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.collection.trending .course-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.collection.trending .course-card:hover img {
+    transform: scale(1.05);
+}
+
+.collection.trending .card-info {
+    padding: 1.2rem;
+}
+
+.collection.trending .card-info h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    height: 2.8em;
+    overflow: hidden;
+}
+
+.collection.trending .card-info p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Estilos para la sección crafted */
+.collection.crafted .course-card {
+    min-width: 280px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.collection.crafted .course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-color);
+}
+
+.collection.crafted .course-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.collection.crafted .card-info {
+    padding: 1.5rem;
+}
+
+.collection.crafted .card-info h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.collection.crafted .card-info > p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    height: 4.5em;
+    overflow: hidden;
+}
+
+.course-details {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #666;
+    font-size: 0.85rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+}
+
+/* Badge para cursos trending */
+.collection.trending .course-card::before {
+    content: '🔥 TRENDING';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* Badge para cursos crafted */
+.collection.crafted .course-card::before {
+    content: '⭐ FEATURED';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* Carrusel responsive */
+.course-carousel {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #f0f0f0;
+}
+
+.course-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+.course-carousel::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+.course-carousel::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .collection.trending .course-card,
+    .collection.crafted .course-card {
+        min-width: 260px;
+    }
+    
+    .collection.trending .card-info h3 {
+        font-size: 1rem;
+        height: auto;
+    }
+    
+    .collection.crafted .card-info > p {
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .collection.trending .course-card,
+    .collection.crafted .course-card {
+        min-width: 240px;
+    }
+    
+    .course-carousel {
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+}
+/* ===== ESTILOS PARA CURSO-DETALLE.HTML ===== */
+
+.course-detail-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.course-header {
+    background: linear-gradient(135deg, var(--primary-color), #008000);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.course-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.course-description-brief {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+}
+
+.course-meta-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.course-content {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.main-content {
+    flex: 2;
+}
+
+.sidebar {
+    flex: 1;
+}
+
+.enrollment-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 100px;
+}
+
+.price-tag {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.enroll-now-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1rem 0;
+    transition: all 0.3s;
+}
+
+.enroll-now-btn:hover {
+    background: #28a428;
+    transform: translateY(-2px);
+}
+
+.course-features {
+    margin: 1.5rem 0;
+}
+
+.course-features p {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.add-to-cart-btn, .wishlist-btn, .share-btn {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background: #f8f8f8;
+    border-color: var(--accent-color);
+}
+
+.wishlist-btn:hover {
+    background: #fff5f5;
+    border-color: #ff6b6b;
+}
+
+.share-btn:hover {
+    background: #f0f8ff;
+    border-color: #4dabf7;
+}
+
+/* Contenido del curso */
+.learning-objectives {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+}
+
+.learning-objectives li {
+    padding: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    border-bottom: 1px solid #eee;
+}
+
+.learning-objectives li:before {
+    content: "✓";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.module-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+    background: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.module-list li {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.module-list li:hover {
+    background: #f0f0f0;
+}
+
+.module-list li:last-child {
+    border-bottom: none;
+}
+
+.requirements-list {
+    list-style: none;
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.requirements-list li {
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.requirements-list li:before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: -1rem;
+}
+
+.instructor-info {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+/* ===== ESTILOS PARA CATALOGO.HTML ===== */
+
+.catalog-page {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.catalog-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.catalog-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.search-filters {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.course-card-detailed {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card-detailed:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.course-card-content {
+    padding: 1.5rem;
+}
+
+.course-card-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    height: 3.5em;
+    overflow: hidden;
+}
+
+.course-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.course-rating, .course-duration {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.course-price {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.enroll-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.enroll-btn:hover {
+    background: #004d00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .course-content {
+        flex-direction: column;
+    }
+    
+    .course-title {
+        font-size: 2rem;
+    }
+    
+    .course-meta-detail {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    
+    .enrollment-card {
+        position: static;
+        margin-top: 2rem;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+.collection.trending .course-card {
+    min-width: 280px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.collection.trending .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.collection.trending .course-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.collection.trending .course-card:hover img {
+    transform: scale(1.05);
+}
+
+.collection.trending .card-info {
+    padding: 1.2rem;
+}
+
+.collection.trending .card-info h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    height: 2.8em;
+    overflow: hidden;
+}
+
+.collection.trending .card-info p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Estilos para la sección crafted */
+.collection.crafted .course-card {
+    min-width: 280px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.collection.crafted .course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    border-color: var(--accent-color);
+}
+
+.collection.crafted .course-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.collection.crafted .card-info {
+    padding: 1.5rem;
+}
+
+.collection.crafted .card-info h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.collection.crafted .card-info > p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    height: 4.5em;
+    overflow: hidden;
+}
+
+.course-details {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #666;
+    font-size: 0.85rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+}
+
+/* Badge para cursos trending */
+.collection.trending .course-card::before {
+    content: '🔥 TRENDING';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* Badge para cursos crafted */
+.collection.crafted .course-card::before {
+    content: '⭐ FEATURED';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* Carrusel responsive */
+.course-carousel {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #f0f0f0;
+}
+
+.course-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+.course-carousel::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+.course-carousel::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .collection.trending .course-card,
+    .collection.crafted .course-card {
+        min-width: 260px;
+    }
+    
+    .collection.trending .card-info h3 {
+        font-size: 1rem;
+        height: auto;
+    }
+    
+    .collection.crafted .card-info > p {
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .collection.trending .course-card,
+    .collection.crafted .course-card {
+        min-width: 240px;
+    }
+    
+    .course-carousel {
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+}

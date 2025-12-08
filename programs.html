@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - Universidad 1970 Online</title>
+    <link rel="stylesheet" href="estilos.css">
+</head> 
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <img src="Images/Universidad1970-Photoroom.png" alt="Logo">
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="./proyecto.html">Home</a></li> 
+                <li><a href="./catalogo.html">All Courses</a></li>
+                <li><a href="./programs.html" class="active">Programs</a></li>
+                <li><a href="#organizations">For Organizations</a></li>
+            </ul>
+        </nav>
+        <div class="nav-controls">
+            <button class="menu-btn">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main style="padding: 50px; max-width: 1200px; margin: 0 auto;">
+        <h1 style="color: var(--primary-color); margin-bottom: 30px;">Our Programs</h1>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div class="program-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">🎓 Certificate Programs</h3>
+                <p>Earn professional certificates in high-demand fields.</p>
+                <ul style="margin-top: 15px;">
+                    <li>Data Science Certificate</li>
+                    <li>Business Management Certificate</li>
+                    <li>Digital Marketing Certificate</li>
+                </ul>
+            </div>
+            
+            <div class="program-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">📚 Degree Programs</h3>
+                <p>Complete degree programs online.</p>
+                <ul style="margin-top: 15px;">
+                    <li>Bachelor's in Computer Science</li>
+                    <li>MBA (Master of Business Administration)</li>
+                    <li>Master's in Public Health</li>
+                </ul>
+            </div>
+            
+            <div class="program-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏆 Executive Education</h3>
+                <p>Short programs for professionals and executives.</p>
+                <ul style="margin-top: 15px;">
+                    <li>Leadership Development</li>
+                    <li>Digital Transformation</li>
+                    <li>Strategic Management</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="margin-top: 50px; text-align: center;">
+            <a href="./catalogo.html" class="btn primary-btn" style="display: inline-block; margin: 10px;">Browse All Courses</a>
+            <a href="./proyecto.html" class="btn secondary-btn" style="display: inline-block; margin: 10px;">Back to Home</a>
+        </div>
+    </main>
+
+    <script src="funcionalidad.js"></script>
+</body>
+</html>
