@@ -7,7 +7,8 @@ const cursosCatalogo = {
         categoria: 'technology',
         imagen: 'Images/famososharvad.jpg',
         rating: '4.8',
-        instructor: 'Dr. Sarah Johnson',
+        instructor: 'Dr. Sarah Johnson',   
+        
         nivel: 'Intermediate'
     },
     'winning-mindset': {
