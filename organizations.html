@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Organizations - Universidad 1970 Online</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body> 
     <header class="main-header">
@@ -13,10 +14,12 @@
         </div>
         <nav class="main-nav">
             <ul class="nav-links">
-                <li><a href="./proyecto.html">Home</a></li> 
-                <li><a href="./catalogo.html">All Courses</a></li>
-                <li><a href="./programs.html">Programs</a></li>
-                <li><a href="./organizations.html" class="active">For Organizations</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">All Courses</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="organizations.html" class="active">For Organizations</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
         <div class="nav-controls">
@@ -28,12 +31,64 @@
         </div>
     </header>
 
-    <main style="padding: 50px; text-align: center;">
-        <h1 style="color: var(--primary-color); margin-bottom: 30px;">For Organizations</h1>
-        <p>This page is under construction.</p>
-        <a href="./proyecto.html" class="btn primary-btn" style="display: inline-block; margin-top: 20px;">
-            Back to Home
-        </a>
+    <main style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+        <div class="page-header" style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="color: var(--primary-color); font-size: 2.5rem; margin-bottom: 1rem;">For Organizations</h1>
+            <p style="font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto;">
+                Empower your team with customized learning solutions from a world-class university
+            </p>
+        </div>
+
+        <div class="solutions-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <div class="solution-card" style="background: white; border-radius: 10px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: var(--primary-color); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                    👥
+                </div>
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Corporate Training</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    Customized training programs to upskill your workforce in areas like leadership, technology, and business strategy.
+                </p>
+                <a href="mailto:corporate@university1970.edu" style="color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 1rem;">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="solution-card" style="background: white; border-radius: 10px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: var(--accent-color); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                    🏢
+                </div>
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Enterprise Solutions</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    Scalable learning platforms and content libraries for large organizations with complex training needs.
+                </p>
+                <a href="mailto:enterprise@university1970.edu" style="color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 1rem;">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="solution-card" style="background: white; border-radius: 10px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center;">
+                <div style="background: #4dabf7; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;">
+                    🤝
+                </div>
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Partnerships</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    Collaborative programs and research partnerships to drive innovation and talent development.
+                </p>
+                <a href="mailto:partnerships@university1970.edu" style="color: var(--accent-color); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 1rem;">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div style="background: #f8f9fa; padding: 3rem; border-radius: 15px; text-align: center; margin-top: 3rem;">
+            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Ready to Transform Your Organization?</h2>
+            <p style="color: #666; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Contact our corporate solutions team to discuss how we can create a custom learning program for your organization.
+            </p>
+            <a href="mailto:organizations@university1970.edu" class="btn primary-btn" style="padding: 12px 30px; display: inline-block;">
+                <i class="fas fa-envelope"></i> Contact Our Team
+            </a>
+        </div>
     </main>
 
     <script src="funcionalidad.js"></script>

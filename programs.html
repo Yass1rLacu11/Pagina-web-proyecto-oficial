@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programs - Universidad 1970 Online</title>
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head> 
 <body>
     <header class="main-header">
@@ -13,10 +14,12 @@
         </div>
         <nav class="main-nav">
             <ul class="nav-links">
-                <li><a href="./proyecto.html">Home</a></li> 
-                <li><a href="./catalogo.html">All Courses</a></li>
-                <li><a href="./programs.html" class="active">Programs</a></li>
-                <li><a href="#organizations">For Organizations</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogo.html">All Courses</a></li>
+                <li><a href="programs.html" class="active">Programs</a></li>
+                <li><a href="organizations.html">For Organizations</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
         <div class="nav-controls">
@@ -29,43 +32,69 @@
     </header>
 
     <main style="padding: 50px; max-width: 1200px; margin: 0 auto;">
-        <h1 style="color: var(--primary-color); margin-bottom: 30px;">Our Programs</h1>
+        <h1 style="color: var(--primary-color); margin-bottom: 30px; font-size: 2.5rem;">Our Programs</h1>
         
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-            <div class="program-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h3 style="color: var(--primary-color); margin-bottom: 15px;">🎓 Certificate Programs</h3>
-                <p>Earn professional certificates in high-demand fields.</p>
-                <ul style="margin-top: 15px;">
-                    <li>Data Science Certificate</li>
-                    <li>Business Management Certificate</li>
-                    <li>Digital Marketing Certificate</li>
+            <div class="program-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <div style="background: var(--primary-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.5rem;">
+                    🎓
+                </div>
+                <h3 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">Certificate Programs</h3>
+                <p style="color: #666; margin-bottom: 15px; line-height: 1.6;">Earn professional certificates in high-demand fields with flexible, focused learning paths.</p>
+                <ul style="margin-top: 15px; padding-left: 20px;">
+                    <li style="margin-bottom: 8px; color: #555;">Data Science Certificate</li>
+                    <li style="margin-bottom: 8px; color: #555;">Business Management Certificate</li>
+                    <li style="margin-bottom: 8px; color: #555;">Digital Marketing Certificate</li>
+                    <li style="color: #555;">Healthcare Administration Certificate</li>
                 </ul>
+                <a href="catalogo.html?type=certificate" class="btn primary-btn" style="display: inline-block; margin-top: 20px; padding: 10px 20px;">
+                    Explore Certificates
+                </a>
             </div>
             
-            <div class="program-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h3 style="color: var(--primary-color); margin-bottom: 15px;">📚 Degree Programs</h3>
-                <p>Complete degree programs online.</p>
-                <ul style="margin-top: 15px;">
-                    <li>Bachelor's in Computer Science</li>
-                    <li>MBA (Master of Business Administration)</li>
-                    <li>Master's in Public Health</li>
+            <div class="program-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <div style="background: var(--accent-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.5rem;">
+                    📚
+                </div>
+                <h3 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">Degree Programs</h3>
+                <p style="color: #666; margin-bottom: 15px; line-height: 1.6;">Complete accredited degree programs online with full support from faculty and advisors.</p>
+                <ul style="margin-top: 15px; padding-left: 20px;">
+                    <li style="margin-bottom: 8px; color: #555;">Bachelor's in Computer Science</li>
+                    <li style="margin-bottom: 8px; color: #555;">MBA (Master of Business Administration)</li>
+                    <li style="margin-bottom: 8px; color: #555;">Master's in Public Health</li>
+                    <li style="color: #555;">Master's in Data Analytics</li>
                 </ul>
+                <a href="catalogo.html?type=degree" class="btn primary-btn" style="display: inline-block; margin-top: 20px; padding: 10px 20px;">
+                    Explore Degrees
+                </a>
             </div>
             
-            <div class="program-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏆 Executive Education</h3>
-                <p>Short programs for professionals and executives.</p>
-                <ul style="margin-top: 15px;">
-                    <li>Leadership Development</li>
-                    <li>Digital Transformation</li>
-                    <li>Strategic Management</li>
+            <div class="program-card" style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <div style="background: #4dabf7; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.5rem;">
+                    🏆
+                </div>
+                <h3 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">Executive Education</h3>
+                <p style="color: #666; margin-bottom: 15px; line-height: 1.6;">Short, intensive programs for professionals and executives seeking career advancement.</p>
+                <ul style="margin-top: 15px; padding-left: 20px;">
+                    <li style="margin-bottom: 8px; color: #555;">Leadership Development</li>
+                    <li style="margin-bottom: 8px; color: #555;">Digital Transformation</li>
+                    <li style="margin-bottom: 8px; color: #555;">Strategic Management</li>
+                    <li style="color: #555;">Innovation & Entrepreneurship</li>
                 </ul>
+                <a href="catalogo.html?type=executive" class="btn primary-btn" style="display: inline-block; margin-top: 20px; padding: 10px 20px;">
+                    Explore Executive Programs
+                </a>
             </div>
         </div>
         
-        <div style="margin-top: 50px; text-align: center;">
-            <a href="./catalogo.html" class="btn primary-btn" style="display: inline-block; margin: 10px;">Browse All Courses</a>
-            <a href="./proyecto.html" class="btn secondary-btn" style="display: inline-block; margin: 10px;">Back to Home</a>
+        <div style="margin-top: 50px; padding: 40px; background: linear-gradient(135deg, var(--primary-color), #008000); color: white; border-radius: 15px; text-align: center;">
+            <h2 style="margin-bottom: 20px; font-size: 2rem;">Need Help Choosing?</h2>
+            <p style="margin-bottom: 25px; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Our academic advisors can help you select the perfect program based on your career goals and background.
+            </p>
+            <a href="mailto:admissions@university1970.edu" class="btn" style="background: white; color: var(--primary-color); padding: 12px 30px; display: inline-block;">
+                <i class="fas fa-graduation-cap"></i> Speak with an Advisor
+            </a>
         </div>
     </main>
 

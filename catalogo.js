@@ -104,38 +104,71 @@ const cursosCatalogo = {
 
 document.addEventListener('DOMContentLoaded', function() {
     const grid = document.querySelector('.courses-grid');
-    
-    // Función para renderizar cursos
-    function renderCourses(filter = 'all') {
+    let itemsToShow = 3;
+    let currentFilter = 'all';
+    let allCourses = [];
+
+    function renderCourses() {
         if (!grid) return;
         
+        // Filtrar cursos
+        allCourses = Object.entries(cursosCatalogo)
+            .filter(([id, curso]) => currentFilter === 'all' || curso.categoria === currentFilter)
+            .map(([id, curso]) => ({ id, ...curso }));
+        
+
         grid.innerHTML = '';
-        
-        Object.entries(cursosCatalogo).forEach(([id, curso]) => {
-            if (filter === 'all' || curso.categoria === filter) {
-                const card = document.createElement('div');
-                card.className = 'course-card-detailed';
-                card.innerHTML = `
-                    <img src="${curso.imagen}" alt="${curso.titulo}" style="width:100%; height:180px; object-fit:cover;">
-                    <div class="course-card-content">
-                        <h3>${curso.titulo}</h3>
-                        <div class="course-meta">
-                            <span class="instructor">👨‍🏫 ${curso.instructor}</span>
-                            <span class="level">🎯 ${curso.nivel}</span>
-                        </div>
-                        <div class="course-rating">⭐ ${curso.rating}/5.0</div>
-                        <div class="course-duration">🕒 ${curso.duracion}</div>
-                        <div class="course-price">${curso.precio}</div>
-                        <button class="enroll-btn" data-course="${id}">Enroll Now</button>
+        allCourses.slice(0, itemsToShow).forEach(({ id, ...curso }) => {
+            const card = document.createElement('div');
+            card.className = 'course-card-detailed';
+            card.innerHTML = `
+                <img src="${curso.imagen}" alt="${curso.titulo}" style="width:100%; height:180px; object-fit:cover;">
+                <div class="course-card-content">
+                    <h3>${curso.titulo}</h3>
+                    <div class="course-meta">
+                        <span class="instructor">👨‍🏫 ${curso.instructor}</span>
+                        <span class="level">🎯 ${curso.nivel}</span>
                     </div>
-                `;
-                grid.appendChild(card);
-            }
+                    <div class="course-rating">⭐ ${curso.rating}/5.0</div>
+                    <div class="course-duration">🕒 ${curso.duracion}</div>
+                    <div class="course-price">${curso.precio}</div>
+                    <button class="enroll-btn" data-course="${id}">Inscribirse</button>
+                </div>
+            `;
+            grid.appendChild(card);
         });
-        
-        // Si no hay cursos, mostrar mensaje
-        if (grid.children.length === 0) {
-            grid.innerHTML = '<p style="text-align:center; grid-column:1/-1; padding:40px;">No courses found in this category.</p>';
+    
+        addLoadMoreButton();
+    }
+    
+    function addLoadMoreButton() {
+        const oldBtn = document.querySelector('.load-more-container');
+        if (oldBtn) oldBtn.remove();
+    
+        if (itemsToShow < allCourses.length) {
+            const container = document.createElement('div');
+            container.className = 'load-more-container';
+            container.style.textAlign = 'center';
+            container.style.margin = '30px 0';
+            
+            const loadMoreBtn = document.createElement('button');
+            loadMoreBtn.className = 'load-more-btn';
+            loadMoreBtn.textContent = `Ver más (${allCourses.length - itemsToShow} restantes)`;
+            loadMoreBtn.style.padding = '12px 30px';
+            loadMoreBtn.style.background = '#007bff';
+            loadMoreBtn.style.color = 'white';
+            loadMoreBtn.style.border = 'none';
+            loadMoreBtn.style.borderRadius = '5px';
+            loadMoreBtn.style.cursor = 'pointer';
+            loadMoreBtn.style.fontSize = '16px';
+            
+            loadMoreBtn.addEventListener('click', () => {
+                itemsToShow += 3;
+                renderCourses();
+            });
+            
+            container.appendChild(loadMoreBtn);
+            grid.parentNode.insertBefore(container, grid.nextSibling);
         }
     }
     
@@ -144,43 +177,12 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            renderCourses(this.dataset.filter);
+            currentFilter = this.dataset.filter;
+            itemsToShow = 3;
+            renderCourses();
         });
     });
     
-    // Búsqueda
-    const searchInput = document.querySelector('.search-input');
-    if (searchInput) {
-        searchInput.addEventListener('input', function(e) {
-            const term = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('.course-card-detailed');
-            
-            cards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const instructor = card.querySelector('.instructor').textContent.toLowerCase();
-                card.style.display = (title.includes(term) || instructor.includes(term)) ? 'block' : 'none';
-            });
-        });
-    }
-    
-    grid.addEventListener('click', function(e) {
-        if (e.target.classList.contains('enroll-btn')) {
-            const courseId = e.target.dataset.course;
-            window.location.href = `curso-detalle.html?course=${courseId}`;
-        }
-    });
-    
-    const params = new URLSearchParams(window.location.search);
-    const filterParam = params.get('filter');
-    
-    if (filterParam === 'trending') {
-        renderCourses('technology');
-        document.querySelector('.filter-btn[data-filter="technology"]')?.classList.add('active');
-    } else if (filterParam === 'featured') {
-        renderCourses('all');
-        document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
-    } else {
-        // Mostrar todos
-        renderCourses();
-    }
+    // Inicializar
+    renderCourses();
 });

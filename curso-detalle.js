@@ -166,33 +166,96 @@ const cursosCompletos = {
         ]
     },
     
-    'chemistry': {
-        id: 'chemistry',
-        titulo: 'Advanced Chemistry Principles',
-        descripcion: 'Master advanced chemistry concepts with practical applications in various industries.',
-        precio: '$99.99',
-        duracion: '4-5 hours per week',
-        instructor: 'Dr. Robert Chen',
-        nivel: 'Advanced',
-        rating: '4.8',
-        reviews: '240 reviews',
-        imagen: 'Images/place.jpg',
-        modulos: [
-            'Advanced Organic Chemistry',
-            'Physical Chemistry Applications',
-            'Analytical Techniques',
-            'Industrial Chemistry',
-            'Environmental Chemistry',
-            'Research Methodologies'
-        ],
-        objetivos: [
-            'Master advanced chemistry concepts',
-            'Apply chemistry principles in industry',
-            'Use analytical techniques effectively',
-            'Understand environmental implications',
-            'Develop research skills'
-        ]
-    },
+    // En la sección de "cursosDetallados" de tu curso-detalle.js, AÑADE esto:
+
+'chemistry': {
+    id: 'chemistry',
+    titulo: 'Chemistry Course',
+    subtitulo: 'Advanced chemistry principles and applications for modern science',
+    instructor: 'Prof. Robert Chang',
+    instructorTitle: 'Professor of Chemistry',
+    descripcion: 'This comprehensive chemistry course covers fundamental principles, advanced concepts, and practical applications of modern chemistry. Perfect for students, researchers, and professionals seeking to deepen their understanding of chemical sciences.',
+    duracion: '12 weeks',
+    horas: '4-5 hours per week',
+    nivel: 'Advanced',
+    precio: '$399',
+    precioOriginal: '$499',
+    descuento: '20%',
+    imagen: 'Images/place.jpg',
+    fechaInicio: 'Starting April 1, 2026',
+    rating: '4.7',
+    estudiantes: '1,850',
+    categoria: 'Science',
+    
+    aprenderas: [
+        'Master fundamental chemical principles and theories',
+        'Understand organic and inorganic chemistry concepts',
+        'Apply chemical knowledge to real-world problems',
+        'Conduct virtual laboratory experiments',
+        'Analyze chemical data and draw conclusions'
+    ],
+    
+    modulos: [
+        {
+            titulo: 'Week 1-2: Fundamentals of Chemistry',
+            duracion: '8 hours',
+            descripcion: 'Basic principles and atomic structure',
+            lecciones: [
+                { titulo: 'Introduction to Chemistry', duracion: '45 min', tipo: 'video' },
+                { titulo: 'Atomic Structure and Periodicity', duracion: '60 min', tipo: 'video' },
+                { titulo: 'Chemical Bonding', duracion: '75 min', tipo: 'tutorial' },
+                { titulo: 'Quiz: Fundamentals', duracion: '30 min', tipo: 'quiz' }
+            ]
+        },
+        {
+            titulo: 'Week 3-4: Organic Chemistry',
+            duracion: '10 hours',
+            descripcion: 'Carbon compounds and organic reactions',
+            lecciones: [
+                { titulo: 'Introduction to Organic Chemistry', duracion: '50 min', tipo: 'video' },
+                { titulo: 'Hydrocarbons and Functional Groups', duracion: '80 min', tipo: 'video' },
+                { titulo: 'Organic Reactions and Mechanisms', duracion: '90 min', tipo: 'tutorial' },
+                { titulo: 'Virtual Lab: Organic Synthesis', duracion: '120 min', tipo: 'lab' }
+            ]
+        },
+        {
+            titulo: 'Week 5-6: Inorganic Chemistry',
+            duracion: '9 hours',
+            descripcion: 'Metals, coordination compounds, and materials',
+            lecciones: [
+                { titulo: 'Transition Metals and Coordination Compounds', duracion: '70 min', tipo: 'video' },
+                { titulo: 'Solid State Chemistry', duracion: '65 min', tipo: 'video' },
+                { titulo: 'Materials Science Applications', duracion: '85 min', tipo: 'tutorial' }
+            ]
+        }
+    ],
+    
+    requisitos: [
+        'High school chemistry knowledge',
+        'Basic understanding of mathematics',
+        'Access to computer for virtual labs',
+        'Scientific calculator recommended'
+    ],
+    
+    instructorBio: 'Prof. Robert Chang has been teaching chemistry for over 15 years. He holds a PhD in Chemistry from MIT and has published numerous research papers in prestigious journals. His teaching approach combines theoretical knowledge with practical applications.',
+    
+    reviews: [
+        {
+            nombre: 'Lisa Thompson',
+            fecha: '3 weeks ago',
+            rating: 5,
+            comentario: 'Excellent course! The virtual labs were incredibly helpful for understanding complex concepts.',
+            cursoCompletado: true
+        },
+        {
+            nombre: 'David Chen',
+            fecha: '2 months ago',
+            rating: 4,
+            comentario: 'Very comprehensive coverage of chemistry topics. The instructor explains difficult concepts clearly.',
+            cursoCompletado: true
+        }
+    ]
+},
     
     'bioinformatics': {
         id: 'bioinformatics',
@@ -371,7 +434,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
 
-        // Botones de acción
         document.getElementById('enroll-now').addEventListener('click', function() {
             alert(`🎉 Congratulations! You've enrolled in:\n\n"${curso.titulo}"\n\nCheck your email for login instructions.`);
         });
@@ -398,7 +460,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Actualizar título de la página
     document.title = `${curso.titulo} - Universidad 1970 Online`;
 });

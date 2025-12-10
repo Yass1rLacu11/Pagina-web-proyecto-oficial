@@ -8,6 +8,355 @@
     --shadow: rgba(0, 0, 0, 0.1);
     --shadow-detailed: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+/* ANIMACIONES AÑADIDAS PARA TODAS LAS IMÁGENES*/
+.logo img {
+    height: 50px;
+    width: auto;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo:hover img {
+    transform: scale(1.08) rotate(3deg);
+    filter: drop-shadow(0 5px 15px rgba(0, 100, 0, 0.3));
+}
+/* 2. IMAGEN MOSAICO DEL HERO (mosaico.jpeg) */
+.image-mosaic {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.5s ease;
+}
+
+.image-mosaic img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-detailed);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: brightness(0.98);
+}
+
+.image-mosaic:hover {
+    transform: translateY(-5px);
+}
+
+.image-mosaic:hover img {
+    transform: scale(1.05) rotate(0.5deg);
+    filter: brightness(1.05) contrast(1.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* 3. IMAGEN PERSONA CON CERTIFICADO (certificado.jpeg) */
+.image-side {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+.image-side img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-detailed);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.image-side:hover {
+    transform: translateY(-8px);
+}
+
+.image-side:hover img {
+    transform: scale(1.06);
+    box-shadow: 0 20px 40px rgba(0, 100, 0, 0.25);
+    filter: saturate(1.1);
+}
+
+/* 4. IMÁGENES DE CURSOS DESTACADOS */
+.featured-main .course-image {
+    flex: 1;
+    overflow: hidden;
+}
+
+.featured-main .course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.featured-main:hover .course-image img {
+    transform: scale(1.08);
+}
+
+.featured-course .course-image {
+    width: 40%;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.featured-course .course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.featured-course:hover .course-image img {
+    transform: scale(1.1);
+    filter: brightness(1.05);
+}
+
+/* 5. IMAGEN CHICA ESTUDIANDO (chicaestudiando.jpg) */
+.individual-learning-section .image-content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.individual-learning-section .image-content img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-detailed);
+    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.individual-learning-section .image-content:hover img {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 100, 0, 0.3);
+    filter: contrast(1.05);
+}
+
+/* 6. IMÁGENES DE CURSOS EN CARRUSEL */
+.course-collections-section .course-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.course-collections-section .course-card:hover img {
+    transform: scale(1.06);
+    filter: brightness(1.05);
+}
+
+/* 7. IMÁGENES DE INSTRUCTORES */
+.instructor-profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--accent-color);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.instructor-profile:hover img {
+    transform: scale(1.12) rotate(5deg);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 100, 0, 0.3);
+}
+
+/* 8. IMÁGENES DE ARTÍCULOS */
+.article-preview .article-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.article-preview:hover .article-image img {
+    transform: scale(1.08);
+    filter: brightness(1.05);
+}
+
+/* 9. IMAGEN MAPA MUNDIAL (world-map.jpg) */
+.global-map {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.global-map img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-detailed);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: brightness(0.95);
+}
+
+.global-map:hover img {
+    transform: scale(1.03);
+    filter: brightness(1);
+    box-shadow: 0 20px 40px rgba(0, 100, 0, 0.25);
+}
+
+/* 10. LOGO DEL FOOTER ANIMADO */
+.footer-logo img {
+    height: 40px;
+    width: auto;
+    margin-bottom: 1rem;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: brightness(1.1);
+}
+
+.footer-logo:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.3) drop-shadow(0 5px 10px rgba(50, 205, 50, 0.3));
+}
+
+/* 11. ICONOS DE REDES SOCIALES ANIMADOS */
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.social-link:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(50, 205, 50, 0.3);
+}
+
+/* 12. BOTONES DE CAROUSEL ANIMADOS */
+.carousel-prev,
+.carousel-next {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding: 0;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 100, 0, 0.2);
+}
+
+.carousel-prev:active,
+.carousel-next:active {
+    transform: scale(0.95);
+}
+
+/* 13. BOTONES ANIMADOS */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #004d00;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 100, 0, 0.3);
+}
+
+/* 14. IMÁGENES EN PÁGINA DE CATÁLOGO */
+.course-card-detailed {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.course-card-detailed:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.course-card-detailed img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.course-card-detailed:hover img {
+    transform: scale(1.07);
+    filter: brightness(1.05);
+}
+
+/* 15. ANIMACIÓN DE ENTRADA PARA IMÁGENES */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.image-mosaic,
+.image-side,
+.individual-learning-section .image-content,
+.featured-main,
+.featured-course,
+.instructor-profile,
+.course-collections-section .course-card,
+.article-preview,
+.global-map {
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+/* Retrasos escalonados */
+.image-mosaic { animation-delay: 0.1s; }
+.image-side { animation-delay: 0.2s; }
+.individual-learning-section .image-content { animation-delay: 0.3s; }
+.featured-main { animation-delay: 0.4s; }
+.featured-course:nth-child(1) { animation-delay: 0.5s; }
+.featured-course:nth-child(2) { animation-delay: 0.6s; }
+.instructor-profile:nth-child(1) { animation-delay: 0.7s; }
+.instructor-profile:nth-child(2) { animation-delay: 0.8s; }
+.instructor-profile:nth-child(3) { animation-delay: 0.9s; }
+.instructor-profile:nth-child(4) { animation-delay: 1s; }
+.instructor-profile:nth-child(5) { animation-delay: 1.1s; }
+
+/* ===== CÓDIGO CSS ORIGINAL CONTINÚA AQUÍ ===== */
+
 /*Para pantallas medianas*/
 @media (max-width: 1024px) {
     .hero-banner-section {
@@ -85,6 +434,35 @@
     .footer-columns {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+    
+    /* Ajustes para animaciones en móviles */
+    .image-mosaic:hover img,
+    .image-side:hover img,
+    .individual-learning-section .image-content:hover img,
+    .featured-main:hover .course-image img,
+    .featured-course:hover .course-image img,
+    .instructor-profile:hover img,
+    .course-collections-section .course-card:hover img,
+    .article-preview:hover .article-image img,
+    .global-map:hover img {
+        transform: scale(1.03);
+    }
+    
+    .image-mosaic:hover,
+    .image-side:hover,
+    .individual-learning-section .image-content:hover,
+    .featured-main:hover,
+    .featured-course:hover,
+    .instructor-profile:hover,
+    .course-collections-section .course-card:hover,
+    .article-preview:hover,
+    .global-map:hover {
+        transform: translateY(-3px);
+    }
+    
+    .social-link:hover {
+        transform: translateY(-2px) scale(1.05);
     }
 }
 @media (max-width: 480px) {
@@ -1494,7 +1872,7 @@ html {
         padding: 0.5rem;
     }
 }
-/* ===== ESTILOS PARA CURSO-DETALLE.HTML ===== */
+/*ESTILOS PARA CURSO-DETALLE.HTML*/
 
 .course-detail-page {
     max-width: 1200px;
@@ -1703,7 +2081,7 @@ html {
     margin-top: 1.5rem;
 }
 
-/* ===== ESTILOS PARA CATALOGO.HTML ===== */
+/*ESTILOS PARA CATALOGO.HTMl*/
 
 .catalog-page {
     padding: 2rem;
@@ -1854,187 +2232,5 @@ html {
     .filter-btn {
         width: 100%;
         max-width: 200px;
-    }
-}
-
-.collection.trending .course-card {
-    min-width: 280px;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.collection.trending .course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-.collection.trending .course-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.collection.trending .course-card:hover img {
-    transform: scale(1.05);
-}
-
-.collection.trending .card-info {
-    padding: 1.2rem;
-}
-
-.collection.trending .card-info h3 {
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-    height: 2.8em;
-    overflow: hidden;
-}
-
-.collection.trending .card-info p {
-    color: #666;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-/* Estilos para la sección crafted */
-.collection.crafted .course-card {
-    min-width: 280px;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    border: 1px solid #f0f0f0;
-}
-
-.collection.crafted .course-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    border-color: var(--accent-color);
-}
-
-.collection.crafted .course-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-}
-
-.collection.crafted .card-info {
-    padding: 1.5rem;
-}
-
-.collection.crafted .card-info h3 {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-}
-
-.collection.crafted .card-info > p {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 0.5rem;
-    height: 4.5em;
-    overflow: hidden;
-}
-
-.course-details {
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    flex-wrap: wrap;
-    color: #666;
-    font-size: 0.85rem;
-    padding-top: 0.5rem;
-    border-top: 1px solid #eee;
-}
-
-/* Badge para cursos trending */
-.collection.trending .course-card::before {
-    content: '🔥 TRENDING';
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--accent-color);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    z-index: 2;
-}
-
-/* Badge para cursos crafted */
-.collection.crafted .course-card::before {
-    content: '⭐ FEATURED';
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--primary-color);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    z-index: 2;
-}
-
-/* Carrusel responsive */
-.course-carousel {
-    display: flex;
-    gap: 1.5rem;
-    overflow-x: auto;
-    padding: 1rem;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) #f0f0f0;
-}
-
-.course-carousel::-webkit-scrollbar {
-    height: 6px;
-}
-
-.course-carousel::-webkit-scrollbar-track {
-    background: #f0f0f0;
-    border-radius: 10px;
-}
-
-.course-carousel::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 10px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .collection.trending .course-card,
-    .collection.crafted .course-card {
-        min-width: 260px;
-    }
-    
-    .collection.trending .card-info h3 {
-        font-size: 1rem;
-        height: auto;
-    }
-    
-    .collection.crafted .card-info > p {
-        height: auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .collection.trending .course-card,
-    .collection.crafted .course-card {
-        min-width: 240px;
-    }
-    
-    .course-carousel {
-        gap: 1rem;
-        padding: 0.5rem;
     }
 }
